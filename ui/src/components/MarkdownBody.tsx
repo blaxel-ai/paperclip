@@ -1,6 +1,7 @@
 import { isValidElement, useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Check, Copy, ExternalLink, Github } from "lucide-react";
+import { Check, Copy, ExternalLink } from "lucide-react";
+import { GithubIcon } from "./GithubIcon";
 import Markdown, { defaultUrlTransform, type Components, type Options } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { cn } from "../lib/utils";
@@ -409,7 +410,7 @@ export function MarkdownBody({
       const isGitHubLink = isGitHubUrl(href);
       const isExternal = isExternalHttpUrl(href);
       const leadingIcon = isGitHubLink ? (
-        <Github aria-hidden="true" className="mr-1 inline h-3.5 w-3.5 align-[-0.125em]" />
+        <GithubIcon aria-hidden="true" className="mr-1 inline h-3.5 w-3.5 align-[-0.125em]" />
       ) : null;
       const trailingIcon = isExternal && !isGitHubLink ? (
         <ExternalLink aria-hidden="true" className="ml-1 inline h-3 w-3 align-[-0.125em]" />
