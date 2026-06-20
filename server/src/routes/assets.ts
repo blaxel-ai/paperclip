@@ -87,11 +87,11 @@ export function assetRoutes(db: Db, storage: StorageService) {
   const svc = assetService(db);
   const assetUpload = multer({
     storage: multer.memoryStorage(),
-    limits: { fileSize: MAX_ATTACHMENT_BYTES, files: 1 },
+    limits: { fileSize: MAX_ATTACHMENT_BYTES, files: 1, fields: 0, fieldNestingDepth: 1 },
   });
   const companyLogoUpload = multer({
     storage: multer.memoryStorage(),
-    limits: { fileSize: MAX_ATTACHMENT_BYTES, files: 1 },
+    limits: { fileSize: MAX_ATTACHMENT_BYTES, files: 1, fields: 0, fieldNestingDepth: 1 },
   });
 
   async function runSingleFileUpload(
