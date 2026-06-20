@@ -544,7 +544,7 @@ export function issueRoutes(
   async function runSingleFileUpload(req: Request, res: Response, fileSizeLimit: number) {
     const upload = multer({
       storage: multer.memoryStorage(),
-      limits: { fileSize: fileSizeLimit, files: 1 },
+      limits: { fileSize: fileSizeLimit, files: 1, fields: 0, fieldNestingDepth: 1 },
     });
     await new Promise<void>((resolve, reject) => {
       upload.single("file")(req, res, (err: unknown) => {
